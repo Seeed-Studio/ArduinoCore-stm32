@@ -12,7 +12,7 @@ menu.upload_method=Upload method
 menu.memory_layout=Memory Layout
 
 ################################################################################
-WIO_LITE_AI.name=WIO_LITE_AI
+WIO_LITE_AI.name=Wio Lite AI
 
 WIO_LITE_AI.build.core=arduino
 WIO_LITE_AI.build.board=WIO_LITE_AI
@@ -20,7 +20,6 @@ WIO_LITE_AI.build.extra_flags=-DWIO_LITE_AI {build.external_memory} -D{build.pro
 
 WIO_LITE_AI.build.mcu=cortex-m7
 WIO_LITE_AI.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
-WIO_LITE_AI.build.board=WIO_LITE_AI
 WIO_LITE_AI.build.series=STM32H7xx
 WIO_LITE_AI.build.product_line=STM32H725xx
 WIO_LITE_AI.build.variant=WIO_LITE_AI
