@@ -44,3 +44,36 @@ WIO_LITE_AI.menu.upload_method.uf2Method=UF2
 WIO_LITE_AI.menu.upload_method.uf2Method.upload.protocol=0
 WIO_LITE_AI.menu.upload_method.uf2Method.upload.options=-g
 WIO_LITE_AI.menu.upload_method.uf2Method.upload.tool=uf2
+
+################################################################################
+LORA_E5.name=LoRa E5
+
+LORA_E5.build.core=arduino
+LORA_E5.build.board=LORA_E5
+LORA_E5.build.extra_flags=-DLORA_E5 -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
+
+LORA_E5.build.mcu=cortex-m4
+LORA_E5.build.board=LORA_E5
+LORA_E5.build.series=STM32WLxx
+LORA_E5.build.product_line=STM32WLE5xx
+LORA_E5.build.variant=LORA_E5
+LORA_E5.build.cmsis_lib_gcc=arm_cortexM4lf_math
+LORA_E5.build.pid=0x2887
+LORA_E5.build.vid=0x8041
+LORA_E5.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Studio"'
+LORA_E5.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5"'
+
+LORA_E5.build.ldscript=ldscript.ld
+LORA_E5.upload.maximum_size=262144
+LORA_E5.upload.maximum_data_size=65536
+
+LORA_E5.menu.usb.none=None
+LORA_E5.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+LORA_E5.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+LORA_E5.menu.usb.CDC=CDC (no generic 'Serial')
+LORA_E5.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+LORA_E5.menu.xusb.FS=Low/Full Speed
+LORA_E5.menu.xusb.HS=High Speed
+LORA_E5.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+LORA_E5.menu.xusb.HSFS=High Speed in Full Speed mode
+LORA_E5.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
