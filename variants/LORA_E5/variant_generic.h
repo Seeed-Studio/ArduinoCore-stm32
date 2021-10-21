@@ -52,25 +52,13 @@
 // On-board LED pin number
 #define LED1                    PB5
 #define LED_RED                 LED1
-#ifndef LED_BUILTIN
-  #define LED_BUILTIN           LED_RED
-#endif
+#define LED_BUILTIN             LED_RED
 
 // On-board user button
 #define B1_BTN                  PA0  
 #define B2_BTN                  PB13 // PB13 (BOOT)
-#ifndef USER_BTN
-  #define USER_BTN              B1_BTN
-#endif
-#ifndef BOOT_BTN
-  #define BOOT_BTN              B2_BTN
-#endif
-
-// Default pin used for generic 'Serial' instance
-// Mandatory for Firmata
-#define ENABLE_HWSERIAL2
-#define PIN_SERIAL2_TX          PA2
-#define PIN_SERIAL2_RX          PA3
+#define USER_BTN                B1_BTN
+#define BOOT_BTN                B2_BTN
 
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
@@ -82,53 +70,47 @@
 #endif
 
 // UART Definitions
-#ifndef SERIAL_UART_INSTANCE
-  #define SERIAL_UART_INSTANCE  101
-#endif
+#define SERIAL_UART_INSTANCE    2
+#define ENABLE_HWSERIAL2
 
 // Default pin used for generic 'Serial' instance
 // Mandatory for Firmata
-#ifndef PIN_SERIAL_RX
-  #define PIN_SERIAL_RX         PB7
-#endif
-#ifndef PIN_SERIAL_TX
-  #define PIN_SERIAL_TX         PB6
-#endif
+#define PIN_SERIAL_RX           PB7
+#define PIN_SERIAL_TX           PB6
+
+#define PIN_SERIAL2_TX          PA2
+#define PIN_SERIAL2_RX          PA3
+
 
 // I2C definitions
-#ifndef PIN_WIRE_SDA
-  #define PIN_WIRE_SDA          PA15
-#endif
-#ifndef PIN_WIRE_SCL
-  #define PIN_WIRE_SCL          PB15
-#endif
+#define PIN_WIRE_SDA            PA15
+#define PIN_WIRE_SCL            PB15
 
 // SPI definitions
-#ifndef PIN_SPI_SS
-  #define PIN_SPI_SS            PB9
-#endif
-#ifndef PIN_SPI_MOSI
-  #define PIN_SPI_MOSI          PA10
-#endif
-#ifndef PIN_SPI_MISO
-  #define PIN_SPI_MISO          PB14
-#endif
-#ifndef PIN_SPI_SCK
-  #define PIN_SPI_SCK           PB13
-#endif
+#define PIN_SPI_SS              PB9
+#define PIN_SPI_MOSI            PA10
+#define PIN_SPI_MISO            PB14
+#define PIN_SPI_SCK             PB13
 
+
+// LPUART1
 #ifndef UART_WAKEUP_EXTI_LINE
   // For LPUART1
   #define UART_WAKEUP_EXTI_LINE LL_EXTI_LINE_28
 #endif
+#define PIN_SERIALLP1_TX PC1
+#define PIN_SERIALLP1_RX PC0
 
 // Extra HAL modules
-#if !defined(HAL_DAC_MODULE_DISABLED)
-  #define HAL_DAC_MODULE_ENABLED
-#endif
+#define HAL_DAC_MODULE_ENABLED
 
+// #define HAL_ETH_MODULE_ENABLED
 #define HAL_ADC_MODULE_ENABLED
-
+#define HAL_I2C_MODULE_ENABLED
+#define HAL_TIM_MODULE_ENABLED
+// #define HAL_UART_MODULE_ENABLED
+#define HAL_SPI_MODULE_ENABLED
+#define HAVE_HWSERIALLP1
 //
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
