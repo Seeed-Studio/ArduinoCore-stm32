@@ -15,88 +15,62 @@
 /*----------------------------------------------------------------------------
  *        STM32 pins number
  *----------------------------------------------------------------------------*/
-// Arduino UNO V3
-// CN9
-#define PB7                     0
-#define PB6                     1
-#define PB12                    2
-#define PB3                     PIN_A6
-#define PB5                     4
-#define PB8                     5
-#define PB10                    6
-#define PC1                     7
-// CN5
-#define PC2                     8
-#define PA9                     9
-#define PA4                     10
-#define PA7                     11
-#define PA6                     12
-#define PA5                     13
-#define PA11                    PIN_A7
-#define PA12                    PIN_A8
-// CN8
-#define PB1                     PIN_A0
-#define PB2                     PIN_A1
-#define PA10                    PIN_A2
-#define PB4                     PIN_A3
-#define PB14                    PIN_A4
-#define PB13                    PIN_A5
-// ST Morpho
-// CN10 Left Side
-#define PA0                     22
-// CN10 Right Side
-#define PC3                     23      // FE_CTRL3
-#define PA1                     24
-#define PB11                    25
-#define PB15                    26
-#define PB9                     27
-#define PB0                     28      // VDD_TCXO Supply voltage of TCXO
-#define PA8                     29
-#define PC0                     30
-#define PC6                     31
-#define PC5                     32      // FE_CTRL2
-#define PC4                     33      // FE_CTRL1
-// CN7 Left Side
-#define PC15                    34      // OSC32_OUT - SB11 OFF not connected to ST Morpho
-#define PC14                    35      // OSC32_IN - SB14 OFF not connected to ST Morpho
-#define PC13                    36
-#define PA15                    PIN_A9
-#define PA14                    PIN_A10
-#define PA13                    PIN_A11
-// Not on connectors
-#define PA2                     40     // Could be on D1. See Solder bridge configuration.
-#define PA3                     41     // Could be on D0. See Solder bridge configuration.
-#define PH3                     42     // BOOT0 - JP3 - GND
+// LoRa-E5 Dev Board
+// First is begin at the top right of the board
+// J7
+#define PC0                     0  // LPUART1_RX
+#define PC1                     1  // LPUART1_TX
+#define PB7                     2  // USART1_RX
+#define PB6                     3  // USART1_TX
+#define PB4                     PIN_A0  // ENRS485
+// J4
+#define PB3                     PIN_A1
+#define PB15                    6  // I2C2_SCL
+#define PA15                    7  // I2C2_SDA
+#define PA14                    8  // SWCLK
+#define PA13                    9  // SWDIO
+// J1
+#define PA10                    10 // SPI2_MOSI
+#define PB14                    11 // SPI2_MISO
+#define PB9                     12 // SPI2_NSS
+#define PB13                    13 // SPI2_SCK/BOOT
+#define PA0                     14 // USER_BTN
+#define PB5                     15 // LED_RED
+// J2
+#define PA9                     16 // EN3V3
+#define PB10                    17 // EN5V
+#define PA2                     18 // USART2_TX
+#define PA3                     19 // USART2_RX
 
-// Alternate pins number
-#define PA1_ALT1                (PA1 | ALT1)
-#define PA2_ALT1                (PA2 | ALT1)
-#define PA3_ALT1                (PA3 | ALT1)
-#define PA7_ALT1                (PA7 | ALT1)
-#define PB8_ALT1                (PB8 | ALT1)
-#define PB9_ALT1                (PB9 | ALT1)
 
-#define NUM_DIGITAL_PINS        43
-#define NUM_ANALOG_INPUTS       12
+#define NUM_DIGITAL_PINS        20
+#define NUM_ANALOG_INPUTS       2
+
+//Enable RS485
+#define ENRS485                 PB4
 
 // On-board LED pin number
-#define LED1                    PB15
-#define LED2                    PB9
-#define LED3                    PB11
+#define LED1                    PB5
+#define LED_RED                 LED1
 #ifndef LED_BUILTIN
-  #define LED_BUILTIN           LED1
+  #define LED_BUILTIN           LED_RED
 #endif
-#define LED_BLUE                LED1
-#define LED_GREEN               LED2
-#define LED_RED                 LED3
 
 // On-board user button
-#define B1_BTN                  PA0 // PC13 (!SB16 SB15)
-#define B2_BTN                  PA1
-#define B3_BTN                  PC6
+#define B1_BTN                  PA0  
+#define B2_BTN                  PB13 // PB13 (BOOT)
 #ifndef USER_BTN
   #define USER_BTN              B1_BTN
 #endif
+#ifndef BOOT_BTN
+  #define BOOT_BTN              B2_BTN
+#endif
+
+// Default pin used for generic 'Serial' instance
+// Mandatory for Firmata
+#define ENABLE_HWSERIAL2
+#define PIN_SERIAL2_TX          PA2
+#define PIN_SERIAL2_RX          PA3
 
 // Timer Definitions
 // Use TIM6/TIM7 when possible as servo and tone don't need GPIO output pin
@@ -115,10 +89,32 @@
 // Default pin used for generic 'Serial' instance
 // Mandatory for Firmata
 #ifndef PIN_SERIAL_RX
-  #define PIN_SERIAL_RX         PA3
+  #define PIN_SERIAL_RX         PB7
 #endif
 #ifndef PIN_SERIAL_TX
-  #define PIN_SERIAL_TX         PA2
+  #define PIN_SERIAL_TX         PB6
+#endif
+
+// I2C definitions
+#ifndef PIN_WIRE_SDA
+  #define PIN_WIRE_SDA          PA15
+#endif
+#ifndef PIN_WIRE_SCL
+  #define PIN_WIRE_SCL          PB15
+#endif
+
+// SPI definitions
+#ifndef PIN_SPI_SS
+  #define PIN_SPI_SS            PB9
+#endif
+#ifndef PIN_SPI_MOSI
+  #define PIN_SPI_MOSI          PA10
+#endif
+#ifndef PIN_SPI_MISO
+  #define PIN_SPI_MISO          PB14
+#endif
+#ifndef PIN_SPI_SCK
+  #define PIN_SPI_SCK           PB13
 #endif
 
 #ifndef UART_WAKEUP_EXTI_LINE
@@ -131,6 +127,9 @@
   #define HAL_DAC_MODULE_ENABLED
 #endif
 
+#define HAL_ADC_MODULE_ENABLED
+
+//
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/
