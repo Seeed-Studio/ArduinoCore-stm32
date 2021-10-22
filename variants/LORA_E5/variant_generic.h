@@ -56,7 +56,7 @@
 
 // On-board user button
 #define B1_BTN                  PA0  
-#define B2_BTN                  PB13 // PB13 (BOOT)
+#define B2_BTN                  PB13  // (BOOT)
 #define USER_BTN                B1_BTN
 #define BOOT_BTN                B2_BTN
 
@@ -70,17 +70,16 @@
 #endif
 
 // UART Definitions
-#define SERIAL_UART_INSTANCE    2
+#define SERIAL_UART_INSTANCE    1
+#define ENABLE_HWSERIAL1
 #define ENABLE_HWSERIAL2
-
 // Default pin used for generic 'Serial' instance
 // Mandatory for Firmata
-#define PIN_SERIAL_RX           PB7
-#define PIN_SERIAL_TX           PB6
+#define PIN_SERIAL1_TX          PB6
+#define PIN_SERIAL1_RX          PB7
 
 #define PIN_SERIAL2_TX          PA2
 #define PIN_SERIAL2_RX          PA3
-
 
 // I2C definitions
 #define PIN_WIRE_SDA            PA15
@@ -92,25 +91,23 @@
 #define PIN_SPI_MISO            PB14
 #define PIN_SPI_SCK             PB13
 
-
 // LPUART1
 #ifndef UART_WAKEUP_EXTI_LINE
   // For LPUART1
   #define UART_WAKEUP_EXTI_LINE LL_EXTI_LINE_28
 #endif
-#define PIN_SERIALLP1_TX PC1
-#define PIN_SERIALLP1_RX PC0
+#define ENABLE_HWSERIALLP1
+#define PIN_SERIALLP1_TX        PC1
+#define PIN_SERIALLP1_RX        PC0
 
 // Extra HAL modules
 #define HAL_DAC_MODULE_ENABLED
 
-// #define HAL_ETH_MODULE_ENABLED
 #define HAL_ADC_MODULE_ENABLED
 #define HAL_I2C_MODULE_ENABLED
 #define HAL_TIM_MODULE_ENABLED
-// #define HAL_UART_MODULE_ENABLED
 #define HAL_SPI_MODULE_ENABLED
-#define HAVE_HWSERIALLP1
+
 //
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
