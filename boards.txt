@@ -78,3 +78,37 @@ LORA_E5.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
 LORA_E5.menu.upload_method.swdMethod.upload.protocol=0
 LORA_E5.menu.upload_method.swdMethod.upload.options=-g
 LORA_E5.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+
+################################################################################
+LORA_E5_MINI.name=LoRa E5 Mini
+
+LORA_E5_MINI.build.core=arduino
+LORA_E5_MINI.build.board=LORA_E5_MINI
+LORA_E5_MINI.build.extra_flags=-DLORA_E5_MINI -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
+
+LORA_E5_MINI.build.mcu=cortex-m4
+LORA_E5_MINI.build.board=LORA_E5_MINI
+LORA_E5_MINI.build.series=STM32WLxx
+LORA_E5_MINI.build.product_line=STM32WLE5xx
+LORA_E5_MINI.build.variant=LORA_E5_MINI
+LORA_E5_MINI.build.cmsis_lib_gcc=arm_cortexM4lf_math
+LORA_E5_MINI.build.pid=0x2888
+LORA_E5_MINI.build.vid=0x8044
+LORA_E5_MINI.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Studio"'
+LORA_E5_MINI.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5-MINI"'
+
+LORA_E5_MINI.build.ldscript=ldscript.ld
+LORA_E5_MINI.upload.maximum_size=262144
+LORA_E5_MINI.upload.maximum_data_size=65536
+
+LORA_E5_MINI.menu.usb.CDC=CDC (no generic 'Serial')
+LORA_E5_MINI.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+
+LORA_E5_MINI.menu.xusb.HSFS=High Speed in Full Speed mode
+LORA_E5_MINI.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+# Upload menu
+LORA_E5_MINI.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+LORA_E5_MINI.menu.upload_method.swdMethod.upload.protocol=0
+LORA_E5_MINI.menu.upload_method.swdMethod.upload.options=-g
+LORA_E5_MINI.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
