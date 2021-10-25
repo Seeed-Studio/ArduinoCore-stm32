@@ -17,7 +17,7 @@
  *----------------------------------------------------------------------------*/
 // LoRa-E5-Mini Dev Board  
 // First is begin at the top right of the board
-// J7
+// J1
 #define PA2                     0  // USART2_TX
 #define PA3                     1  // USART2_RX
 #define PC1                     2  // LPUART1_TX
