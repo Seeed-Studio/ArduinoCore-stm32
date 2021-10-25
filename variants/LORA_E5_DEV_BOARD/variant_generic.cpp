@@ -10,7 +10,7 @@
  *
  *******************************************************************************
  */
-#if defined(LORA_E5)
+#if defined(LORA_E5_DEV_BOARD)
 #include "pins_arduino.h"
 
 // Digital PinName array
