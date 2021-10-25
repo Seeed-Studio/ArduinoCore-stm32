@@ -49,8 +49,8 @@ WIO_LITE_AI.menu.upload_method.uf2Method.upload.tool=uf2
 LORA_E5_DEV_BOARD.name=LoRa E5 Dev Board
 
 LORA_E5_DEV_BOARD.build.core=arduino
-LORA_E5_DEV_BOARD.build.board=LORA_E5
-LORA_E5_DEV_BOARD.build.extra_flags=-DLORA_E5 -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
+LORA_E5_DEV_BOARD.build.board=LORA_E5_DEV_BOARD
+LORA_E5_DEV_BOARD.build.extra_flags=-DLORA_E5_DEV_BOARD -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
 
 LORA_E5_DEV_BOARD.build.mcu=cortex-m4
 LORA_E5_DEV_BOARD.build.board=LORA_E5_DEV_BOARD
@@ -61,7 +61,7 @@ LORA_E5_DEV_BOARD.build.cmsis_lib_gcc=arm_cortexM4lf_math
 LORA_E5_DEV_BOARD.build.pid=0x2887
 LORA_E5_DEV_BOARD.build.vid=0x8042
 LORA_E5_DEV_BOARD.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Studio"'
-LORA_E5_DEV_BOARD.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5"'
+LORA_E5_DEV_BOARD.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5-DEV-BOARD"'
 
 LORA_E5_DEV_BOARD.build.ldscript=ldscript.ld
 LORA_E5_DEV_BOARD.upload.maximum_size=262144
