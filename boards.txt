@@ -46,38 +46,38 @@ WIO_LITE_AI.menu.upload_method.uf2Method.upload.options=-g
 WIO_LITE_AI.menu.upload_method.uf2Method.upload.tool=uf2
 
 ################################################################################
-LORA_E5.name=LoRa E5
+LORA_E5_DEV_BOARD.name=LoRa E5 Dev Board
 
-LORA_E5.build.core=arduino
-LORA_E5.build.board=LORA_E5
-LORA_E5.build.extra_flags=-DLORA_E5 -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
+LORA_E5_DEV_BOARD.build.core=arduino
+LORA_E5_DEV_BOARD.build.board=LORA_E5
+LORA_E5_DEV_BOARD.build.extra_flags=-DLORA_E5 -D{build.product_line} -DUSE_CM4_STARTUP_FILE {build.xSerial}
 
-LORA_E5.build.mcu=cortex-m4
-LORA_E5.build.board=LORA_E5
-LORA_E5.build.series=STM32WLxx
-LORA_E5.build.product_line=STM32WLE5xx
-LORA_E5.build.variant=LORA_E5
-LORA_E5.build.cmsis_lib_gcc=arm_cortexM4lf_math
-LORA_E5.build.pid=0x2887
-LORA_E5.build.vid=0x8042
-LORA_E5.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Studio"'
-LORA_E5.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5"'
+LORA_E5_DEV_BOARD.build.mcu=cortex-m4
+LORA_E5_DEV_BOARD.build.board=LORA_E5_DEV_BOARD
+LORA_E5_DEV_BOARD.build.series=STM32WLxx
+LORA_E5_DEV_BOARD.build.product_line=STM32WLE5xx
+LORA_E5_DEV_BOARD.build.variant=LORA_E5_DEV_BOARD
+LORA_E5_DEV_BOARD.build.cmsis_lib_gcc=arm_cortexM4lf_math
+LORA_E5_DEV_BOARD.build.pid=0x2887
+LORA_E5_DEV_BOARD.build.vid=0x8042
+LORA_E5_DEV_BOARD.build.usb_manufacturer='-DUSB_MANUFACTURER_STRING="Seeed Studio"'
+LORA_E5_DEV_BOARD.build.usb_product='-DUSB_PRODUCT_STRING="LORA-E5"'
 
-LORA_E5.build.ldscript=ldscript.ld
-LORA_E5.upload.maximum_size=262144
-LORA_E5.upload.maximum_data_size=65536
+LORA_E5_DEV_BOARD.build.ldscript=ldscript.ld
+LORA_E5_DEV_BOARD.upload.maximum_size=262144
+LORA_E5_DEV_BOARD.upload.maximum_data_size=65536
 
-LORA_E5.menu.usb.CDC=CDC (no generic 'Serial')
-LORA_E5.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+LORA_E5_DEV_BOARD.menu.usb.CDC=CDC (no generic 'Serial')
+LORA_E5_DEV_BOARD.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
 
-LORA_E5.menu.xusb.HSFS=High Speed in Full Speed mode
-LORA_E5.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+LORA_E5_DEV_BOARD.menu.xusb.HSFS=High Speed in Full Speed mode
+LORA_E5_DEV_BOARD.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
 
 # Upload menu
-LORA_E5.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
-LORA_E5.menu.upload_method.swdMethod.upload.protocol=0
-LORA_E5.menu.upload_method.swdMethod.upload.options=-g
-LORA_E5.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+LORA_E5_DEV_BOARD.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+LORA_E5_DEV_BOARD.menu.upload_method.swdMethod.upload.protocol=0
+LORA_E5_DEV_BOARD.menu.upload_method.swdMethod.upload.options=-g
+LORA_E5_DEV_BOARD.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
 
 ################################################################################
 LORA_E5_MINI.name=LoRa E5 Mini
